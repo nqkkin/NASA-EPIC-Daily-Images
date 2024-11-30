@@ -28,39 +28,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     carouselContent.appendChild(item);
                 });
 
-                // Animate carousel items
-                gsap.fromTo(
-                    ".carousel-item",
-                    { opacity: 0, x: -100 },
-                    { opacity: 1, x: 0, duration: 1, stagger: 0.2 }
-                );
+                // Add floating effect to images using GSAP
+                gsap.to(".carousel-item img", {
+                    y: -10, // Moves the image upward
+                    repeat: -1, // Infinite loop
+                    yoyo: true, // Makes it go back and forth
+                    ease: "power1.inOut", // Smooth movement
+                    duration: 6, // Duration of each loop
+                    stagger: 0.5, // Adds a stagger effect for images
+                    rotation: 5 // Rotation effect
+                });
 
                 // Hover effects for carousel images
                 document.querySelectorAll('.carousel-item img').forEach(img => {
                     img.addEventListener('mouseenter', () => {
-                        gsap.to(img, { scale: 1.1, duration: 0.5 }); // Scale up image
+                        gsap.to(img, { scale: 1.05, duration: 0.5 });
                     });
+
                     img.addEventListener('mouseleave', () => {
-                        gsap.to(img, { scale: 1, duration: 0.5 }); // Reset scale
+                        gsap.to(img, { scale: 1, duration: 0.5 });
                     });
-                });
-
-                // Smooth scroll effect
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener("click", function (e) {
-                        e.preventDefault();
-                        gsap.to(window, { duration: 1, scrollTo: this.getAttribute("href") });
-                    });
-                });
-
-                // Modal animations
-                const lightboxModal = document.getElementById("lightboxModal");
-                lightboxModal.addEventListener("show.bs.modal", () => {
-                    gsap.fromTo("#lightboxModal .modal-content", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5 });
-                });
-
-                lightboxModal.addEventListener("hidden.bs.modal", () => {
-                    gsap.to("#lightboxModal .modal-content", { opacity: 0, y: 50, duration: 0.5 });
                 });
 
                 // Set modal content on image click

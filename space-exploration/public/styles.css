@@ -1,95 +1,93 @@
-/* General Styles */
+/* Apply the Orbitron font for the entire site */
 body {
     font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(to bottom, #000000, #0d1a2b);
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-header, footer {
-    background-color: #0d1a2b;
+/* Header styling */
+header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #fff;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    color: #00bfff;
-    text-shadow: 0px 0px 10px #00bfff;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00d4ff; /* Light cyan for a spacey, readable effect */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds a subtle shadow to make it pop */
 }
+
 
 header p {
+    font-size: 1.2rem;
+    color: #f0f0f0; /* Light gray for contrast */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Light shadow to improve visibility */
+}
+
+/* Carousel captions with more spacey font styling */
+.carousel-caption h5 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.carousel-caption p {
+    font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
-    color: #ffffff;
+    letter-spacing: 1px;
 }
 
-.carousel {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-/* Ensure carousel images are responsive */
-.carousel-item img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-}
-
+/* Footer styling */
 footer {
-    background: #0d1a2b;
+    background: rgba(0, 0, 0, 0.8);
+    color: #bbb;
+    padding: 15px;
     font-size: 0.9rem;
-    color: #aaa;
 }
 
-/* GSAP Animation Enhancements */
-.carousel-item img {
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-.carousel-item.active img {
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.5s ease-in-out;
-}
-
-/* Lightbox Modal Styles */
+/* Modal styling */
 .modal-content {
-    background: #1a1a1a;
-    border-radius: 10px;
-}
-
-#lightboxImage {
-    max-width: 100%;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
 }
 
 .modal-header .btn-close {
     color: #fff;
 }
 
-/* Responsive Design */
-@media (max-width: 767px) {
-    /* On small screens, reduce the size of the header and carousel images */
+#lightboxImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-body p {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
     header h1 {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
 
-    .carousel-item img {
-        max-height: 350px;
+    header p {
+        font-size: 1rem;
     }
-}
 
-@media (min-width: 768px) and (max-width: 1199px) {
-    /* Medium screens (tablet) adjustments */
-    .carousel-item img {
-        max-height: 450px;
-    }
-}
-
-@media (min-width: 1200px) {
-    /* Large screens adjustments */
-    .carousel-item img {
-        max-height: 600px;
+    footer {
+        font-size: 0.8rem;
     }
 }
