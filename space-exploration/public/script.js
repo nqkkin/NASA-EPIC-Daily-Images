@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const dateParts = image.date.split(" ");
                     const formattedDate = dateParts[0].replace(/-/g, "/");
                     const imageUrl = `https://epic.gsfc.nasa.gov/archive/natural/${formattedDate}/png/${image.image}.png`;
+                    const originalImageUrl = `https://epic.gsfc.nasa.gov/archive/natural/${formattedDate}/png/${image.image}.png`; // Original image URL
 
                     const item = document.createElement("div");
                     item.classList.add("carousel-item");
@@ -30,13 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Add floating effect to images using GSAP
                 gsap.to(".carousel-item img", {
-                    y: -10, // Moves the image upward
-                    repeat: -1, // Infinite loop
-                    yoyo: true, // Makes it go back and forth
-                    ease: "power1.inOut", // Smooth movement
-                    duration: 6, // Duration of each loop
-                    stagger: 0.5, // Adds a stagger effect for images
-                    rotation: 5 // Rotation effect
+                    y: -10, 
+                    repeat: -1, 
+                    yoyo: true, 
+                    ease: "power1.inOut", 
+                    duration: 6, 
+                    stagger: 0.5, 
+                    rotation: 5 
                 });
 
                 // Hover effects for carousel images
@@ -55,11 +56,31 @@ document.addEventListener("DOMContentLoaded", () => {
                     img.addEventListener("click", (e) => {
                         const imgSrc = e.target.dataset.image;
                         const imgDate = e.target.dataset.date;
+                        const imgLink = e.target.dataset.image; // Original image URL
+
+                        // Set the lightbox modal content
                         document.getElementById("lightboxImage").src = imgSrc;
                         document.getElementById("imageDate").innerText = `Date: ${imgDate}`;
                         document.getElementById("imageDescription").innerText = "This is an EPIC image of Earth taken by NASA's EPIC camera.";
+
+                        // Wrap the image in an anchor tag that links to the original image
+                        const lightboxImageContainer = document.getElementById("lightboxImageContainer");
+                        lightboxImageContainer.innerHTML = `<a href="${imgLink}" target="_blank"><img id="lightboxImage" class="img-fluid" src="${imgSrc}" alt="Earth Image"></a>`;
                     });
                 });
+
+                // Pause carousel when modal is opened
+                const modal = document.getElementById("lightboxModal");
+                modal.addEventListener("show.bs.modal", () => {
+                    $('#carousel').carousel('pause');
+                });
+
+                // Resume carousel when modal is closed
+                modal.addEventListener("hidden.bs.modal", () => {
+                    $('#carousel').carousel('cycle');
+                });
+
+                
             }
         })
         .catch(error => console.error("Error fetching data:", error));
