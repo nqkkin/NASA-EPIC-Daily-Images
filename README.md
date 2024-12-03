@@ -1,6 +1,6 @@
 # NASA EPIC Daily Images Viewer
 
-A web application that showcases stunning images of Earth captured by NASA's EPIC (Earth Polychromatic Imaging Camera). This site dynamically loads daily images of Earth and presents them in a carousel format, allowing users to view, zoom, and learn about these images in an engaging and interactive way.
+A web application that showcases stunning images of Earth captured by NASA's EPIC (Earth Polychromatic Imaging Camera). This site dynamically loads daily images of Earth and presents them in a carousel format, allowing users to view, zoom, and learn about these images in an engaging and interactive way. This for the choice lab Javascipt Libary Lab 1.
 
 ## Features
 
@@ -9,10 +9,6 @@ A web application that showcases stunning images of Earth captured by NASA's EPI
 - **Smooth Animations**: GSAP animations are applied to the carousel for an engaging visual effect.
 - **Responsive Design**: The site adjusts for different screen sizes, ensuring a great user experience on mobile, tablet, and desktop devices.
 - **Fallback Support**: In case the API data is unavailable, a fallback image is displayed with a message.
-
-## Demo
-
-Visit [NASA EPIC Daily Images Viewer Demo](#) to see the site in action (replace with the actual demo link if hosted online).
 
 ## Technologies Used
 
@@ -37,7 +33,7 @@ git clone https://github.com/your-username/nasa-epic-images.git
 ### 2. Navigate to the project directory:
 
 ```bash
-cd nasa-epic-images
+cd space-exploration
 ```
 
 ### 3. Install dependencies:
